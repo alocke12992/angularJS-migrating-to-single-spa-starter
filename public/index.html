@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en-us" ng-app="AngularDrumMachine">
+<head>
+  <meta charset="utf-8" />
+  <title>Angular Drum Machine - Built with AngularJS</title>
+
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Oleo+Script+Swash+Caps' rel='stylesheet' type='text/css'>
+  <!--<link rel="stylesheet" href="/assets/bower_components/foundation/css/normalize.css">-->
+  <!--<link rel="stylesheet" href="/assets/bower_components/foundation/css/foundation.min.css">-->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+  <script src="/assets/js/angular_drums.min.js"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-322913-7', 'dojosto.com');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body ng-view>
+  <a class="show-for-medium-up" href="https://github.com/dougjohnston/angular-drum-machine">
+    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+  </a>
+  <div id="container" class="row">
+    <div class="large-12 large-centered columns" ng-controller="DrumMachineCtrl as dm">
+      <header>
+        <h1>Angular Drum Machine</h1>
+        <div id="loading-wrap" ng-show="loading">
+          <div class="loading loading-outer">
+            <div class="loading loading-inner"></div>
+          </div>
+          <h3>loading...</h3>
+        </div>
+      </header>
+
+      <div id="controls" ng-hide="loading">
+        <button id="play" class="button small success radius" ng-click="playLoop()">Play</button>
+        <button id="pause" class="button small alert radius" ng-click="stopLoop()">Stop</button>
+        <button id="reset" class="button small radius" ng-click="resetLoop()">Clear</button>
+        <div id="readout">
+          <span id="tempo">
+            <input type="range" min="60" max="180" ng-change="updateTempo()" ng-model="tempo">
+            <input id="bpmEdit" type="text" min="60" max="180" ng-change="updateTempo()" ng-blur="CloseEdit()" ng-model="tempo" style="width:50px;display:none;">
+            <span id="bpm" ng-click="EditBPM()">{{tempo}} bpm</span>
+          </span>
+        </div>
+      </div>
+
+      <ul id="dm-grid" ng-hide="loading">
+        <li class="dm-header">
+          <ul>
+            <li class='instrument-name'></li>
+            <li class='beat-num' data-ng-repeat="i in [] | range:machine.gridLength()">
+              <div ng-class="{true: 'current-beat'}[($index + 1) === machine.currentBeat()]">{{$index + 1}}</div>
+            </li>
+          </ul>
+        </li>
+        <li class="dm-row" ng-repeat="row in machine.rows()">
+          <ul class="instrument">
+            <li class='instrument-name'>
+              {{row.getInstrument().getName()}}<br>
+              <span>{{row.getInstrument().getDescription()}}<span>
+            </li>
+            <li data-ng-repeat="beat in row.getBeats()">
+              <button class="btn" ng-class="{'btn-on':beat.isActive()}" 
+                ng-click="beat.toggle()">
+                <div></div>
+              </button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <footer ng-hide="loading">
+        Developed by <a href="http://www.dojosto.com">Doug Johnston</a> using <a href="http://angularjs.org/">AngularJS</a>.<br>Drum loops provided by
+        <a href="http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/65">Music Radar</a>.
+      </footer>
+
+      <aside class="msg-play show-for-large-up" ng-class="{'faded': fade_msg_play}" ng-hide="loading"></aside>
+    </div>
+  </div>
+</body>
+</html>

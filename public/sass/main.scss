@@ -1,0 +1,291 @@
+@import 'settings';
+
+/* Import Foundation */
+@import 'normalize';
+@import 'grid';
+@import 'buttons';
+@import "type";
+@import 'visibility';
+
+body {
+  padding: 0.7rem;
+  background-color: $bg-main;
+  color: $fg-main;
+  font-family: 'Ubuntu Mono', Arial, sans-serif;
+  line-height: 1.2;
+}
+
+h1 {
+  padding: 0 0.2rem;
+  color: $fg-main;
+  font-family: 'Oleo Script Swash Caps', cursive;
+  font-size: 3.5rem;
+  line-height: 3.8rem;
+}
+
+a {
+  color: $fg-alt;
+}
+
+ul, ul li ul {
+  padding: 0;
+  margin-left: 0;
+}
+
+button:focus, input:focus {
+  outline: 1px dashed $bg-inst;
+}
+
+/* Start Loading Animation */
+/* By Adonis K., http://codepen.io/adonisk/pen/IAzbo */
+$loader-size: 0.5em;
+
+.loading {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  padding: $loader-size;
+  vertical-align: middle;
+  text-align: center;
+  background-color: transparent;
+  border: 5px solid transparent;
+  border-radius: 50%;
+}
+
+.loading-outer {
+  -webkit-animation: spin 1s infinite;
+     -moz-animation: spin 1s infinite;
+      -ms-animation: spin 1s infinite;
+       -o-animation: spin 1s infinite;
+          animation: spin 1s infinite;
+  border-top-color: $button-light-border;
+  border-bottom-color: $button-light-border;
+}
+
+.loading-inner {
+  -webkit-animation: spin 1s infinite;
+     -moz-animation: spin 1s infinite;
+      -ms-animation: spin 1s infinite;
+       -o-animation: spin 1s infinite;
+          animation: spin 1s infinite;
+  border-top-color: $button-light;
+  border-bottom-color: $button-light;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+    -moz-transform: rotateZ(360deg);
+    -ms-transform: rotateZ(360deg);
+    -o-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+
+#loading-wrap {
+  box-sizing: border-box;
+  display: table-cell;
+  vertical-align: middle;
+
+  h3 {
+    display: inline-block;
+    font-size: 1.3rem;
+    font-weight: normal;
+    font-family: 'Ubuntu Mono', Arial, sans-serif;
+    color: $fg-darker;
+  }
+}
+
+/* End Loading Animation */
+
+#container {
+  margin: 0 auto;
+}
+
+#controls {
+  margin-bottom: 0.5rem;
+
+  button {
+    height: 2.4rem;
+    line-height: 2.4rem;
+    padding: 0 1rem;
+    margin: 0 0 0.3rem;
+    font-family: 'Ubuntu Mono', Arial, sans-serif;
+    font-size: 1rem;
+  }
+
+  #reset {
+    background-color: #3699b9;
+    border-color: #167999;
+  }
+
+  #readout {
+    display: inline-block;
+    width: 200px;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    background: $bg-darker;
+    padding: 0 1rem;
+    @include border-radius(3px);
+    color: $fg-alt;
+
+    #tempo {
+      position: relative;
+
+      /* Range Styles */
+      input[type="range"] {
+        -webkit-appearance: none;
+        position: relative;
+        top: -5px;
+        background-color: $fg-alt;
+        width: 60%;
+        height: 2px;
+      }
+
+      ::-moz-range-track {
+        position: relative;
+        top: -5px;
+        background-color: $fg-alt;
+        width: 60%;
+        height: 2px;
+        border: 0;
+      }
+
+      ::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 11px;
+        height: 11px;
+        cursor: pointer;
+        @include border-radius(6px);
+        background-color: $fg-alt;
+      }
+
+      ::-moz-range-thumb {
+        width: 11px;
+        height: 11px;
+        cursor: pointer;
+        background: $fg-alt;
+        border: 0;
+        @include border-radius(6px);
+      }
+    }
+  }
+}
+
+#dm-grid {
+  list-style: none;
+  margin-bottom: 0.5rem;
+
+  ul {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    list-style: none;
+  }
+
+  /* Header Row */
+  .dm-header {
+    .beat-num {
+      margin-top: 0.5%;
+      margin-bottom: 0.2%;
+      font-size: 12px;
+      .current-beat {
+        width: 60%;
+        margin: 0 auto;
+        /*transition: background-color 0.05s ease;*/
+        background: #43AC6A;
+        @include border-radius(6px);
+      }
+    }
+  }
+
+  /* Instrument Row */
+  .dm-row {
+    background: $bg-inst;
+    margin-bottom: 0.2rem;
+    border: 1px solid $bg-darker;
+    @include border-radius(6px);
+
+    .instrument {
+      margin: 1.2% 0;
+
+      button {
+        width: 100%;
+        height: 35px;
+        margin: 0;
+        padding: 0;
+        border: 1px solid $bg-lighter;
+        vertical-align: middle;
+        @include border-radius(3px);
+        background: $button-bg-off;
+        @include box-shadow-inset();
+        div {
+          width: 70%;
+          height: 4px;
+          margin: 15px auto 0;
+          background: $bg-lighter;
+          border: 1px solid #888;
+          @include border-radius(2px);
+        }
+      }
+      button.btn-on {
+        background: $button-bg-on;
+        border: 1px solid $bg-lighter;
+        border: 1px solid $button-light-border;
+        @include box-shadow-on();
+        div {
+          @include box-shadow();
+          background: $button-light;
+          border: 1px solid $button-light-border;
+        }
+      }
+    }
+  }
+
+  ul li {
+    flex-grow: 1;
+    display: inline-block;
+    margin-right: 1.4%;
+    width: 30px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .instrument-name {
+    /*width: 6rem;*/
+    flex-basis: 4rem;
+    flex-shrink: 2;
+    align-self: center;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: right;
+    margin-right: 0.6rem;
+    span {
+      font-size: 12px;
+      color: $fg-darker;
+    }
+  }
+}
+
+/* Messages */
+.msg-play {
+  position: absolute;
+  top: 80px;
+  left: -185px;
+  background: transparent url(../images/ready-to-groove.png) no-repeat;
+  width: 183px;
+  height: 134px;
+}
+
+.faded {
+  opacity: 0.2;
+}

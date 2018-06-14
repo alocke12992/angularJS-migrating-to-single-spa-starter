@@ -1,0 +1,40 @@
+{
+  "name": "Angular-Drum-Machine",
+  "version": "0.0.1",
+  "description": "Angular Drum Machine",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dougjohnston/angular-drum-machine.git"
+  },
+  "devDependencies": {
+    "bower": "latest",
+    "grunt": "latest",
+    "grunt-contrib-sass": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-connect": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-karma": "latest",
+    "karma": "latest",
+    "karma-script-launcher": "latest",
+    "karma-firefox-launcher": "latest",
+    "karma-chrome-launcher": "latest",
+    "karma-html2js-preprocessor": "latest",
+    "karma-jasmine": "latest",
+    "karma-requirejs": "latest",
+    "karma-phantomjs-launcher": "~0.2",
+    "karma-spec-reporter": "latest",
+    "jasmine-core": "latest",
+    "phantomjs-prebuilt": "latest",
+    "requirejs": "latest"
+  },
+  "author": "Doug Johnston",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/dougjohnston/angular-drum-machine/issues"
+  },
+  "homepage": "https://github.com/dougjohnston/angular-drum-machine"
+}

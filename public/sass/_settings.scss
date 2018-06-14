@@ -1,0 +1,45 @@
+// Custom Colors
+$bg-main: #373737;
+$bg-darker: #222;
+$bg-lighter: #444;
+$bg-inst: #575757;
+
+$fg-main: #efeae4;
+$fg-darker: #bfbab4;
+$fg-alt: #3699b9;
+
+$button-bg-off: #777;
+$button-bg-on: #eca599;
+$button-bg-shadow: #fcc6bd;
+$button-light: #f04124;
+$button-light-border: #cf280e;
+
+$button-bg-off: #777;
+$button-bg-on: #95dff7;
+$button-bg-shadow: #3df;
+$button-light: #24caff;
+$button-light-border: #3699b9;
+
+// Mixins
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+       -o-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin box-shadow() {
+  -webkit-box-shadow: 0px 0px 5px $button-bg-shadow;
+          box-shadow: 0px 0px 5px $button-bg-shadow;
+}
+
+@mixin box-shadow-inset() {
+  -webkit-box-shadow: inset 2px -1px 0px 0px rgba(50, 50, 50, 0.4);
+          box-shadow: inset 2px -1px 0px 0px rgba(50, 50, 50, 0.4);
+}
+
+@mixin box-shadow-on() {
+  -webkit-box-shadow: 0px 0px 6px 0px rgba(30, 120, 150, 0.7);
+          box-shadow: 0px 0px 6px 0px rgba(30, 120, 150, 0.7);
+}

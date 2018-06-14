@@ -1,0 +1,7 @@
+.sass-cache
+.DS_Store
+.tern-port
+node_modules/
+bower_components/
+css/main.css.map
+public/assets/js/angular_drums.min.js.map
