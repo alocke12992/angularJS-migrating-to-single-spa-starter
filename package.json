@@ -13,21 +13,21 @@
   "devDependencies": {
     "bower": "latest",
     "grunt": "latest",
-    "grunt-contrib-sass": "latest",
-    "grunt-contrib-watch": "latest",
     "grunt-contrib-connect": "latest",
+    "grunt-contrib-sass": "latest",
     "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
     "grunt-karma": "latest",
+    "jasmine-core": "latest",
     "karma": "latest",
-    "karma-script-launcher": "latest",
-    "karma-firefox-launcher": "latest",
     "karma-chrome-launcher": "latest",
+    "karma-firefox-launcher": "latest",
     "karma-html2js-preprocessor": "latest",
     "karma-jasmine": "latest",
-    "karma-requirejs": "latest",
     "karma-phantomjs-launcher": "~0.2",
+    "karma-requirejs": "latest",
+    "karma-script-launcher": "latest",
     "karma-spec-reporter": "latest",
-    "jasmine-core": "latest",
     "phantomjs-prebuilt": "latest",
     "requirejs": "latest"
   },
@@ -36,5 +36,6 @@
   "bugs": {
     "url": "https://github.com/dougjohnston/angular-drum-machine/issues"
   },
-  "homepage": "https://github.com/dougjohnston/angular-drum-machine"
+  "homepage": "https://github.com/dougjohnston/angular-drum-machine",
+  "dependencies": {}
 }
