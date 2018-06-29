@@ -18,8 +18,8 @@ npm install -g sass
 With those dependencies installed, you can get started by typing the following command into your terminal:
 
 ```bash
-git clone git@github.com:alocke12992/single-spa-angular-migration-starter.git
-cd single-spa-angular-migration-starter
+git clone git@github.com:alocke12992/angularJS-migrating-to-single-spa-starter.git
+cd angularJS-migrating-to-single-spa-starter
 yarn
 cd public/assets
 bower install
@@ -29,7 +29,7 @@ Run `grunt` in the root directory to fire up a server at `http://localhost:8080`
 
 ## Tutorial
 
-You can find the tutorial, [AngularJS - Migrating to single-spa](https://single-spa.js.org/docs/migrating-angularJS-tutorial.html), on the [single-spa](https://single-spa.js.org/) website. You can find the completed [code for this tutorial here](https://github.com/alocke12992/single-spa-angular-migration).
+You can find the tutorial, [AngularJS - Migrating to single-spa](https://single-spa.js.org/docs/migrating-angularJS-tutorial.html), on the [single-spa](https://single-spa.js.org/) website. You can find the completed [code for this tutorial here](https://github.com/alocke12992/angularJS-migrating-to-single-spa).
 
 ## Original README.md
 
